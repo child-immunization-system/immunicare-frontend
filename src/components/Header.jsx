@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 import React from 'react';
+=======
+>>>>>>> 4ca7357 (first commit)
 import { useNavigate, Link } from 'react-router-dom';
 import logo from '../assets/logo.png'
 //import "../styles/Header.css";
@@ -17,7 +20,11 @@ const Header = () => {
 
             <Link to='/' className='flex w-1/5'><img src={logo} alt='' style={{width: '60%'}} /></Link>
 
+<<<<<<< HEAD
             <nav className='flex justify-between items-center w-2/6 font-semibold'>
+=======
+            <nav className='flex justify-between items-center w-2/6 font-medium'>
+>>>>>>> 4ca7357 (first commit)
 
                 <Link to='/'>Home</Link>
                 <Link to='/'>How It works</Link>

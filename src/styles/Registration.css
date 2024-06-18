@@ -1,0 +1,23 @@
+.container {
+    background: #fff;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.text-primary {
+    color: #ff7e5f !important;
+}
+
+.content p {
+    color: #333;
+}
+
+/*a {
+    color: #ff7e5f;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}*/

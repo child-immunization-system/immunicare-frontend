@@ -1,0 +1,73 @@
+/* Card Styles */
+.registration-card {
+    background-color: #f8f9fa; /* Light gray background */
+    border: none;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+/* Card Body Styles */
+.registration-card .card-body {
+    padding: 2rem;
+}
+
+/* Card Title Styles */
+.registration-card .card-title {
+    font-size: 1.75rem; /* Larger font size for better visibility */
+    font-weight: bold; /* Bold font for emphasis */
+    color: #343a40; /* Dark gray color for the title */
+}
+
+/* Form Control Styles */
+.registration-card .form-control {
+    border-radius: 10px;
+    padding: 0.75rem;
+    border: 1px solid #ced4da; /* Gray border */
+}
+
+/* Form Control Focus Styles */
+.registration-card .form-control:focus {
+    border-color: #5b9bd5; /* Blue border on focus */
+    box-shadow: 0 0 5px rgba(91, 155, 213, 0.5); /* Blue shadow on focus */
+}
+
+/* Button Styles */
+.registration-card .btn-primary {
+    background-color: #007bff; /* Blue button color */
+    border: none;
+    padding: 0.75rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+/* Button Hover Styles */
+.registration-card .btn-primary:hover {
+    background-color: #0056b3; /* Darker blue color on hover */
+}
+
+/* Error Message Styles */
+.registration-card .text-danger {
+    color: #f44336 !important; /* Red color for error messages */
+    margin-top: 10px; /* Space between the input field and error message */
+}
+
+/* Additional Padding for Input Fields */
+.registration-card .form-group {
+    margin-bottom: 1.5rem; /* Increased spacing between form groups */
+}
+
+/* Additional Styling for the Form */
+.registration-card .form-label {
+    font-weight: bold; /* Bold label text */
+    color: #495057; /* Darker color for labels */
+}
+
+.registration-card .text-content p {
+    margin: 0; /* Remove default margin for error text */
+}
+
+.registration-card .btn-primary:disabled {
+    background-color: #6c757d; /* Gray color when button is disabled */
+    cursor: not-allowed; /* Change cursor to not-allowed */
+}

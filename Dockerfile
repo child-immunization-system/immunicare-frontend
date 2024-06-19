@@ -8,16 +8,16 @@ WORKDIR /app
 COPY package.json package-lock.json /app/
 
 # Install the dependencies
-RUN npm install
+RUN yarn install
 
 # Copy the rest of the application code into the container
 COPY . /app
 
 # Build the React app
-RUN npm run build
+RUN yarn run build
 
 # Install serve to serve the built app
-RUN npm install -g serve
+RUN yarn install -g serve
 
 # Expose the port that the app runs on
 EXPOSE 80

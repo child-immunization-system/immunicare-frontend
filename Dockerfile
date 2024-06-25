@@ -1,29 +1,29 @@
-# Use the official Node.js image from the Docker Hub
-FROM node:22-alpine As build
+# Stage 1: Build the React app with Vite
+FROM node:16 as build
 
-# Set the working directory in the container
+# Set the working directory inside the container
 WORKDIR /app
 
+# Copy package.json and package-lock.json to the working directory
+COPY package.json package-lock.json ./
 
-# Copy package.json and yarn.lock for dependency installation
-COPY package.json yarn.lock ./
+# Install dependencies
+RUN npm install
 
-# Install the dependencies
-RUN yarn install
-
-# Copy the rest of the application code into the container
+# Copy the rest of the application code to the working directory
 COPY . .
 
 # Build the React app
-RUN yarn build
+RUN npm run build
 
-# Stage 2: Create a lightweight production image
-FROM node:16-alpine
+# Stage 2: Serve the built app using an Nginx web server
+FROM nginx:alpine
 
-WORKDIR /app
-# Install serve to serve the built app
-RUN yarn add -g serve
-# Expose the port that the app runs on
+# Copy the built app from the previous stage to the Nginx web server's root directory
+COPY --from=build /app/dist /usr/share/nginx/html
+
+# Expose the default port for Nginx
 EXPOSE 3000
-# Command to run the app
-CMD ["serve", "-s", "build", "-l", "3000"]
+
+# Start the Nginx server
+CMD ["nginx", "-g", "daemon off;"]

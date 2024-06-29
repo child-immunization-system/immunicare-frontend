@@ -1,17 +1,17 @@
 # Use the official Node.js image from the Docker Hub
 FROM node:22-alpine As build
 
-# Set the working directory in the container
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy package.json and yarn.lock for dependency installation
-COPY package.json yarn.lock ./
+# Copy the package.json and package-lock.json into the container
+COPY package.json package-lock.json /app/
 
 # Install the dependencies
 RUN yarn install
 
 # Copy the rest of the application code into the container
-COPY . .
+COPY . /app
 
 # Build the React app
 RUN yarn build
@@ -19,10 +19,14 @@ RUN yarn build
 # Stage 2: Create a lightweight production image
 FROM node:16-alpine
 
-WORKDIR /app
-# Install serve to serve the built app
-RUN yarn add -g serve
-# Expose the port that the app runs on
+# Stage 2: Serve the built app using an Nginx web server
+FROM nginx:alpine
+
+# Copy the built app from the previous stage to the Nginx web server's root directory
+COPY --from=build /app/dist /usr/share/nginx/html
+
+# Expose the default port for Nginx
 EXPOSE 3000
-# Command to run the app
-CMD ["serve", "-s", "build", "-l", "3000"]
+
+# Start the Nginx server
+CMD ["nginx", "-g", "daemon off;"]

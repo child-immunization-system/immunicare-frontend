@@ -1,8 +1,16 @@
+import { Aside } from "./Aside"
+import { Dashmain } from "./Dashmain"
 
 
 const Main = () => {
   return (
-    <div>Main</div>
+    <main className="flex justify-between mt-2">
+
+      <Dashmain />
+
+      <Aside />
+
+    </main>
   )
 }
 

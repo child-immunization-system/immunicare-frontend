@@ -5,8 +5,17 @@ import schedule from '../../assets/schedule.png'
 import records from '../../assets/document.png'
 import resources from '../../assets/bi_stack.png'
 import settings from '../../assets/settings.png'
+import { useNavigate } from 'react-router-dom';
 
 const Sidemenu = () => {
+
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+      localStorage.removeItem('auth');
+      navigate('/login/');
+  };
+
   return (
     <aside className="flex flex-col items-center bg-white rounded-md p-4" style={{width: '15%'}}>
 
@@ -37,7 +46,7 @@ const Sidemenu = () => {
       </nav>
 
       <div className="flex flex-col justify-center items-center mt-32 text-sm font-semibold w-full"> 
-        <img src={logout} alt="" style={{width: '20%'}} /> Logout 
+        <img src={logout} alt="" style={{width: '20%'}} onClick={handleLogout} /> Logout 
       </div>
 
     </aside>

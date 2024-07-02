@@ -1,14 +1,8 @@
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png'
 //import "../styles/Header.css";
 
 const Header = () => {
-    const navigate = useNavigate();
-
-    const handleLogout = () => {
-        localStorage.removeItem('auth');
-        navigate('/login/');
-    };
 
     return (
 
@@ -25,17 +19,19 @@ const Header = () => {
 
             </nav>
 
-            <div className='flex justify-between items-center' style={{width: '30%'}}>
+            <div className='flex justify-between items-center' style={{width: '25%'}}>
 
                 {/*<button className='flex justify-center items-center' onClick={handleLogout}> <FaSignOutAlt className="mr-1" />Logout </button>*/}
 
-                <button style={{backgroundColor: '#3632ff'}} className='flex justify-center items-center rounded-md text-white px-8 py-2' onClick={handleLogout}> 
+                <Link to='' style={{backgroundColor: '#3632ff'}} className='flex justify-center items-center rounded-md text-white px-8 py-2'> 
                     Sign Up 
-                </button>
+                </Link>
 
-                <button style={{border: '1px solid #3632ff', color: '#3632ff'}} className='flex justify-center items-center rounded-md px-8 py-2 font-bold' onClick={handleLogout}> 
+                <Link to='/login' style={{border: '1px solid #3632ff', color: '#3632ff'}} 
+                    className='flex justify-center items-center rounded-md px-8 py-2 font-bold'
+                > 
                     Sign In 
-                </button>
+                </Link>
             
             </div>
 

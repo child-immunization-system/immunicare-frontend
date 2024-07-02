@@ -4,6 +4,11 @@ import pic from '../../assets/pic1.png'
 import arrow from '../../assets/arrow.png'
 
 const Header = () => {
+
+  const userData = localStorage.getItem('user-info');
+  const userdetail = JSON.parse(userData);
+  const name = userdetail.data.first_name
+
   return (
     <header className='flex justify-between items-center rounded py-2 px-4 bg-white'>
 
@@ -21,8 +26,8 @@ const Header = () => {
           <img src={pic} alt='' className='' style={{width: '25%'}} />
 
           <div className='flex flex-col text-left'>
-            <p className='font-bold text-sm'>Deonaid!</p>
-            <p className='text-xs font-normal' style={{color: 'hsla(241, 100%, 60%, 1)', marginTop: '-5px'}}>@deonaid</p>
+            <p className='font-bold text-sm'>{name}!</p>
+            <p className='text-xs font-normal' style={{color: 'hsla(241, 100%, 60%, 1)', marginTop: '-5px'}}>@{name}</p>
           </div>
 
         </div>
